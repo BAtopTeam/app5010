@@ -5,7 +5,7 @@ struct SplashScreen: View {
 
     var body: some View {
         ZStack(alignment: .center) {
-            Color.white.ignoresSafeArea()
+            Color.black0D0F0D.ignoresSafeArea()
             
             Image(.iconn)
                 .resizable()
