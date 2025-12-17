@@ -18,7 +18,7 @@ struct AspectRatioSheetView: View {
     var body: some View {
         VStack(spacing: 20) {
             Capsule()
-                .fill(Color.black101010.opacity(0.3))
+                .fill(Color.white.opacity(0.3))
                 .frame(width: 40, height: 4)
                 .padding(.top, 8)
             
@@ -36,13 +36,13 @@ struct AspectRatioSheetView: View {
                                 
                                 Text(ratio.value)
                                     .font(.interMedium(size: 15))
-                                    .foregroundStyle(.black101010)
+                                    .foregroundStyle(.white)
                                 
                             }
                             .frame(maxWidth: .infinity, minHeight: 44)
                             .background(
                                 RoundedRectangle(cornerRadius: 22)
-                                    .fill(Color.grayF5F5F5)
+                                    .fill(Color.gray212321)
                             )
                             .overlay(
                                 RoundedRectangle(cornerRadius: 22)
@@ -58,7 +58,7 @@ struct AspectRatioSheetView: View {
             .scrollDisabled(true)
         }
         .frame(height: 200)
-        .background(Color.white)
+        .background(.black0D0F0D)
         .clipShape(RoundedRectangle(cornerRadius: 40))
     }
 }

@@ -21,19 +21,19 @@ struct AvatarPaywall: View {
     var body: some View {
         VStack(alignment: .center, spacing: .zero) {
             Capsule()
-                .fill(Color.black101010.opacity(0.3))
+                .fill(Color.white.opacity(0.3))
                 .frame(width: 40, height: 4)
                 .padding(.top, 8)
                 .padding(.bottom, 20)
             
             Text("Additional avatar")
                 .font(.interSemiBold(size: 22))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
                 .padding(.bottom, 12)
             
             Text("Create an avatar for your friends and family")
                 .font(.interMedium(size: 16))
-                .foregroundStyle(.black101010.opacity(0.7))
+                .foregroundStyle(.white.opacity(0.7))
                 .padding(.bottom, 24)
             
             Image(.humans)
@@ -76,7 +76,7 @@ struct AvatarPaywall: View {
                     .overlay {
                         Text("Continue")
                             .font(.interMedium(size: 16))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.black)
                     }
             }
             .buttonStyle(.plain)
@@ -97,7 +97,7 @@ struct AvatarPaywall: View {
             .padding(.bottom)
         }
         .frame(height: 420)
-        .background(Color.white)
+        .background(Color.black0D0F0D)
         .padding(.horizontal)
         .safari(urlString: "https://docs.google.com/document/d/1l17QMMa0Hjz4ycyAGM9Qj_yIL-Zt-qSAqYW2qdHucW4/edit?usp=sharing", isPresented: $showPolicy)
         .safari(urlString: "https://docs.google.com/document/d/1sM80Feufp8jTebygWDq-rj00Ju19fRSkI9GWaodUeRA/edit?usp=sharing", isPresented: $showTerms)

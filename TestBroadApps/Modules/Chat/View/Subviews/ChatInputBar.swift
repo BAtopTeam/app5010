@@ -49,11 +49,11 @@ struct ChatInputBar: View {
                 ZStack(alignment: .leading) {
                     if text.isEmpty {
                         Text("Start typing a prompt")
-                            .foregroundStyle(Color.gray.opacity(0.6))
+                            .foregroundStyle(Color.white.opacity(0.3))
                     }
                     TextField("", text: $text, axis: .vertical)
                         .font(.interMedium(size: 15))
-                        .foregroundStyle(.black101010)
+                        .foregroundStyle(.white)
                         .lineLimit(1...3)
                         .textInputAutocapitalization(.sentences)
                         .disableAutocorrection(false)
@@ -84,8 +84,8 @@ struct ChatInputBar: View {
         }
         .background(
             RoundedRectangle(cornerRadius: !selectedImages.isEmpty ? 24 : 48)
-                .fill(Color.white)
-                .strokeBorder(Color.grayF5F5F5, lineWidth: 1.5)
+                .fill(Color.black0D0F0D)
+                .strokeBorder(Color.gray212321, lineWidth: 1.5)
         )
         .animation(.spring(response: 0.3, dampingFraction: 0.8), value: selectedImages)
     }

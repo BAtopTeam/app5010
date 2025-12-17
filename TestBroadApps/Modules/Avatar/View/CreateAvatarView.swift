@@ -68,6 +68,7 @@ struct CreateAvatarView: View {
             .presentationDetents([.height(420)])
             .presentationCornerRadius(32)
             .presentationDragIndicator(.hidden)
+            .presentationBackground(.black0D0F0D)
         }
     }
     
@@ -193,7 +194,7 @@ struct CreateAvatarView: View {
         case .intro:
                 .orangeF86B0D
         default:
-                .white
+                .black0D0F0D
         }
     }
     

@@ -17,7 +17,7 @@ struct CategorySection: View {
             HStack {
                 Text(category.title ?? "Category")
                     .font(.interSemiBold(size: 22))
-                    .foregroundColor(.black101010)
+                    .foregroundColor(.white)
                 
                 Spacer()
                 

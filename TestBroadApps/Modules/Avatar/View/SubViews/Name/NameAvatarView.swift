@@ -14,7 +14,7 @@ struct NameAvatarView: View {
         VStack(spacing: .zero) {
             Text("Come up with a name\nfor your avatar")
                 .font(.interSemiBold(size: 26))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 48.fitW)
                 .padding(.bottom, 16.fitH)
@@ -23,7 +23,7 @@ struct NameAvatarView: View {
                 .font(.interMedium(size: 16))
                 .padding()
                 .frame(height: 50)
-                .background(Color.grayF5F5F5)
+                .background(Color.gray212321)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .padding(.horizontal)
 

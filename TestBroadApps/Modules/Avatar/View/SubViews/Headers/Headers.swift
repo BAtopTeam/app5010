@@ -13,7 +13,7 @@ struct HeaderForIntro: View {
     
     var body: some View {
         HStack {
-            Image(.backIcon)
+            Image(.greenBackIcon)
                 .resizable()
                 .frame(width: 48.fitW, height: 48.fitW)
                 .onTapGesture {
@@ -24,7 +24,7 @@ struct HeaderForIntro: View {
 
             Text("Skip")
                 .font(.interSemiBold(size: 16))
-                .foregroundStyle(.white.opacity(0.8))
+                .foregroundStyle(.black0D0F0D.opacity(0.8))
                 .onTapGesture {
                     skipTapAction()
                 }
@@ -32,7 +32,7 @@ struct HeaderForIntro: View {
         .overlay {
             Text("Creating an avatar")
                 .font(.interSemiBold(size: 18))
-                .foregroundStyle(.white)
+                .foregroundStyle(.black0D0F0D)
             
         }
         .frame(maxWidth: .infinity)
@@ -57,7 +57,7 @@ struct HeaderForGender: View {
         .overlay {
             Text("Creating an avatar")
                 .font(.interSemiBold(size: 18))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal)
@@ -82,7 +82,7 @@ struct HeaderForUpload: View {
             
             Text("Added: \(countOfPhotos)")
                 .font(.interSemiBold(size: 18))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
             
             Spacer()
             
@@ -127,12 +127,12 @@ struct HeaderForGeneration: View {
             
             Text("Avatar generation")
                 .font(.interSemiBold(size: 18))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
             
             Spacer(minLength: 0)
             
             HStack(spacing: 4) {
-                Image(.generateIcon)
+                Image(.whiteAvatarIcon)
                     .resizable()
                     .frame(width: 20, height: 20)
                 

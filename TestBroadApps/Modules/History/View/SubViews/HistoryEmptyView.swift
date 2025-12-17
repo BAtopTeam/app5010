@@ -14,7 +14,7 @@ struct HistoryEmptyView: View {
     var body: some View {
         VStack(spacing: .zero) {
             ZStack {
-                Color.grayF5F5F5
+                Color.black0D0F0D
             }
             .clipShape(RoundedRectangle(cornerRadius: 16))
         }
@@ -29,7 +29,7 @@ struct HistoryEmptyView: View {
                 
                 Text("It's empty now")
                     .font(.interSemiBold(size: 22))
-                    .foregroundStyle(.black101010)
+                    .foregroundStyle(.white)
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 24)
 
@@ -42,7 +42,7 @@ struct HistoryEmptyView: View {
                         .overlay {
                             Text("To the generations")
                                 .font(.interMedium(size: 16))
-                                .foregroundStyle(.white)
+                                .foregroundStyle(.black0D0F0D)
                         }
                 }
                 .buttonStyle(.plain)

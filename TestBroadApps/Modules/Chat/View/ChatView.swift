@@ -32,7 +32,7 @@ struct ChatView: View {
                     }
                 )
                 Rectangle()
-                    .fill(.grayF5F5F5)
+                    .fill(.gray212321)
                     .frame(height: 1)
                     .frame(maxWidth: .infinity)
                 
@@ -40,7 +40,7 @@ struct ChatView: View {
                 chat
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(.white)
+            .background(.black0D0F0D)
             .ignoresSafeArea(edges: .bottom)
             .overlay(alignment: .bottom) {
                 ChatInputBar(
@@ -50,7 +50,7 @@ struct ChatView: View {
                         let text = inputText
                         inputText = ""
                         Task {
-                            await viewModel.sendMessage(text)
+                            viewModel.sendMessage(text)
                         }
                     },
                     selectType: { showSheet = true }
@@ -83,6 +83,7 @@ struct ChatView: View {
             .presentationDetents([.height(200)])
             .presentationCornerRadius(40)
             .presentationDragIndicator(.hidden)
+            .presentationBackground(.black0D0F0D)
         }
         .sheet(isPresented: $showSheet) {
             SelectTypeOfAddingSheet(gallerySelect: {
@@ -93,6 +94,7 @@ struct ChatView: View {
             .presentationDetents([.height(180)])
             .presentationCornerRadius(40)
             .presentationDragIndicator(.hidden)
+            .presentationBackground(.black0D0F0D)
         }
         .fullScreenCover(isPresented: $showCamera) {
             CameraPicker { image in
@@ -113,6 +115,7 @@ struct ChatView: View {
             .presentationDetents([.height(510)])
             .presentationCornerRadius(32)
             .presentationDragIndicator(.hidden)
+            .presentationBackground(.black0D0F0D)
         }
         .fullScreenCover(isPresented: $viewModel.showPaywall) {
             PaywallView()

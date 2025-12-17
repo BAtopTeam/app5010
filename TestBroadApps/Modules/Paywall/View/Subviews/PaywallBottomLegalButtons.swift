@@ -29,7 +29,7 @@ struct PaywallBottomLegalButtons: View {
             } label: {
                 Text("Privacy Policy")
                     .font(.interMedium(size: 15))
-                    .foregroundStyle(.black101010.opacity(0.6))
+                    .foregroundStyle(.white.opacity(0.6))
             }
             .buttonStyle(.plain)
             
@@ -41,7 +41,7 @@ struct PaywallBottomLegalButtons: View {
                 } label: {
                     Text("Recover")
                         .font(.interMedium(size: 15))
-                        .foregroundStyle(.black101010)
+                        .foregroundStyle(.white)
                 }
                 .buttonStyle(.plain)
                 
@@ -54,7 +54,7 @@ struct PaywallBottomLegalButtons: View {
             } label: {
                 Text("Terms of Use")
                     .font(.interMedium(size: 15))
-                    .foregroundStyle(.black101010.opacity(0.6))
+                    .foregroundStyle(.white.opacity(0.6))
             }
             .buttonStyle(.plain)
         }

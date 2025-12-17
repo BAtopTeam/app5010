@@ -20,7 +20,7 @@ struct SeeAllView: View {
     
     var body: some View {
         ZStack {
-            Color.white.ignoresSafeArea()
+            Color.black0D0F0D.ignoresSafeArea()
             
             VStack(spacing: .zero) {
                 HStack {
@@ -35,7 +35,7 @@ struct SeeAllView: View {
                     
                     Text(category.title ?? "Category")
                         .font(.interSemiBold(size: 18))
-                        .foregroundStyle(.black101010)
+                        .foregroundStyle(.white)
                     
                     Spacer()
 

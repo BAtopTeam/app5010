@@ -30,12 +30,12 @@ struct SubscriptionOptionView: View {
             VStack(alignment: .leading, spacing: .zero) {
                 Text(title)
                     .font(.interMedium(size: 15))
-                    .foregroundColor(.black101010)
+                    .foregroundColor(.white)
                 
                 if discountText != nil {
                     Text(subtitle)
                         .font(.system(size: 15))
-                        .foregroundColor(.black101010.opacity(0.7))
+                        .foregroundColor(.white.opacity(0.7))
                 }
             }
             
@@ -43,10 +43,10 @@ struct SubscriptionOptionView: View {
             if let text = discountText {
                 Text(text)
                     .font(.interMedium(size: 15))
-                    .foregroundColor(.black101010)
+                    .foregroundColor(.white)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 2)
-                    .background(.white)
+                    .background(.black0D0F0D)
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(.orangeF86B0D, lineWidth: 1)
@@ -55,20 +55,19 @@ struct SubscriptionOptionView: View {
             }
             Text(price)
                 .font(.interSemiBold(size: 16))
-                .foregroundColor(.black101010)
+                .foregroundColor(.white)
         }
         .padding(.vertical, (discountText != nil) ? 8 : 12)
         .padding(.horizontal, 12)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(Color.grayF5F5F5)
+                .fill(Color.gray212321)
                 .overlay(
                     RoundedRectangle(cornerRadius: 16)
-                        .stroke(isSelected ? Color.orangeF86B0D : Color.grayF5F5F5, lineWidth: isSelected ? 2 : 1)
+                        .stroke(isSelected ? Color.orangeF86B0D : Color.gray212321, lineWidth: isSelected ? 2 : 1)
                 )
                 .shadow(color: .black.opacity(0.05), radius: 2, x: 0, y: 1)
         )
-//        .background(.grayF5F5F5)
         .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }

@@ -65,6 +65,7 @@ struct CustomTabBar: View {
                     }
                     .padding(.vertical, 6)
                     .padding(.top, 6)
+                    .contentShape(Rectangle())
                     .onTapGesture {
                         router.selectedTab = tab
                         // Показываем таббар, если путь текущего таба пуст
@@ -74,6 +75,6 @@ struct CustomTabBar: View {
                 }
             }
         }
-        .background(.white)
+        .background(router.selectedTab == .samples ? VisualEffectBlur(style: .systemThinMaterialDark).ignoresSafeArea() : VisualEffectBlur(style: .dark).ignoresSafeArea())
     }
 }

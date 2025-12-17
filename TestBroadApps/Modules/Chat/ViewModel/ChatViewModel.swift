@@ -137,8 +137,6 @@ final class ChatViewModel: ObservableObject {
         }
     }
 
-
-
     private func uploadPrompt(
         lastMessages: [Message],
         text: String,

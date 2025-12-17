@@ -15,13 +15,13 @@ struct HistoryView: View {
     
     var body: some View {
         ZStack {
-            Color.white.ignoresSafeArea()
+            Color.black0D0F0D.ignoresSafeArea()
             
             VStack(spacing: .zero) {
                 HStack {
                     Text("History")
                         .font(.interSemiBold(size: 22))
-                        .foregroundStyle(.black101010)
+                        .foregroundStyle(.white)
                     
                     Spacer(minLength: 0)
                     
@@ -32,7 +32,7 @@ struct HistoryView: View {
                         
                         Text("\(viewModel.tokensCount)")
                             .font(.interMedium(size: 16))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.black0D0F0D)
                             .lineLimit(1)
                             .minimumScaleFactor(0.7)
                     }
@@ -50,7 +50,7 @@ struct HistoryView: View {
                 
                 if viewModel.history.isEmpty && viewModel.isLoading {
                     ProgressView()
-                        .tint(.black)
+                        .tint(.white)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else if viewModel.history.isEmpty {
                     HistoryEmptyView {

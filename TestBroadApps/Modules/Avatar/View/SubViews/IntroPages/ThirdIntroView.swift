@@ -14,7 +14,7 @@ struct ThirdIntroView: View {
             VStack(alignment: .leading) {
                 Text("We recommend \nthat you do not use")
                     .font(.interSemiBold(size: 26.fitW))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black0D0F0D)
                     .padding(.bottom, 16.fitH)
                 
                 HStack(alignment: .top, spacing: 8) {
@@ -25,7 +25,7 @@ struct ThirdIntroView: View {
                     
                     Text("Photos from social networks, as they are highly compressed")
                         .font(.interMedium(size: 16.fitW))
-                        .foregroundStyle(.white.opacity(0.8))
+                        .foregroundStyle(.black0D0F0D.opacity(0.8))
                 }
                 .padding(.bottom, 16.fitH)
                 
@@ -37,7 +37,7 @@ struct ThirdIntroView: View {
                     
                     Text("Low—resolution photo - the avatar may turn out to be of poor quality")
                         .font(.interMedium(size: 16.fitW))
-                        .foregroundStyle(.white.opacity(0.8))
+                        .foregroundStyle(.black0D0F0D.opacity(0.8))
                 }
                 .padding(.bottom, 43.fitH)
             }

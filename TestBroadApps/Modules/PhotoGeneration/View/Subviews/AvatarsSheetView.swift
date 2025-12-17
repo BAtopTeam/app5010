@@ -28,7 +28,7 @@ struct AvatarSheetView: View {
     var body: some View {
         VStack(spacing: 20) {
             Capsule()
-                .fill(Color.black101010.opacity(0.3))
+                .fill(Color.white.opacity(0.3))
                 .frame(width: 40, height: 4)
                 .padding(.top, 8)
 
@@ -43,7 +43,7 @@ struct AvatarSheetView: View {
                         Text("Create an\navatar")
                             .multilineTextAlignment(.center)
                             .font(.interMedium(size: 16))
-                            .foregroundStyle(.black101010)
+                            .foregroundStyle(.white)
                     }
 
                     ForEach(avatars) { avatar in
@@ -77,7 +77,7 @@ struct AvatarSheetView: View {
 
                             Text(avatar.title ?? "Avatar \(avatar.id)")
                                 .font(.system(size: 14, weight: .medium))
-                                .foregroundColor(.black)
+                                .foregroundColor(.white)
                         }
                     }
                 }
@@ -86,7 +86,7 @@ struct AvatarSheetView: View {
             Spacer()
         }
         .frame(height: 206)
-        .background(Color.white)
+        .background(.black0D0F0D)
         .clipShape(RoundedRectangle(cornerRadius: 40))
     }
 }

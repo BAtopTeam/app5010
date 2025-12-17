@@ -24,7 +24,7 @@ struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             RootView(services: services)
-                .preferredColorScheme(.light)
+                .preferredColorScheme(.dark)
                 .onAppear {
                     AppConfigurator.configureKingfisher()
                     

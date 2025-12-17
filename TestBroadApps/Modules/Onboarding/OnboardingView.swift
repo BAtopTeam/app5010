@@ -52,20 +52,22 @@ struct OnboardingView: View {
                     bottomButtonThird
                 }
                 
-            } else if step == 3 {
-                
-                VStack {
-                    Spacer()
-                    
-                    Image(.onb4)
-                        .resizable()
-                        .frame(width: UIScreen.main.bounds.width)
-                        .frame(height: 500.fitH)
-                    
-                    bottomButtonFourth
-                }
             }
+//            else if step == 3 {
+//                
+//                VStack {
+//                    Spacer()
+//                    
+//                    Image(.onb4)
+//                        .resizable()
+//                        .frame(width: UIScreen.main.bounds.width)
+//                        .frame(height: 500.fitH)
+//                    
+//                    bottomButtonFourth
+//                }
+//            }
         }
+        .background(.black0D0F0D)
         .overlay(alignment: .top) {
             progressHeader
         }
@@ -75,12 +77,12 @@ struct OnboardingView: View {
         VStack(alignment: .center) {
             Text("Welcome to the app")
                 .font(.interSemiBold(size: 26))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
                 .padding(.bottom, 12)
             
             Text("Turn your ideas into stunning visuals and bring your imagination to life with AI.")
                 .font(.interMedium(size: 16))
-                .foregroundStyle(.black101010.opacity(0.7))
+                .foregroundStyle(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40.fitW)
                 .padding(.bottom, 24)
@@ -95,7 +97,7 @@ struct OnboardingView: View {
                     .overlay {
                         Text("Continue")
                             .font(.interMedium(size: 16))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.black0D0F0D)
                     }
             }
             .buttonStyle(.plain)
@@ -103,7 +105,7 @@ struct OnboardingView: View {
             .padding(.bottom, 8)
         }
         .padding(.top)
-        .background(.white)
+        .background(.black0D0F0D)
         .clipShape(.rect(topLeadingRadius: 24, topTrailingRadius: 24))
     }
     
@@ -111,58 +113,20 @@ struct OnboardingView: View {
         VStack(alignment: .center) {
             Text("Just describe your idea")
                 .font(.interSemiBold(size: 26))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 30.fitW)
                 .padding(.bottom)
             
             Text("Type what you imagine, and Velora brings it to life.")
                 .font(.interMedium(size: 16))
-                .foregroundStyle(.black101010.opacity(0.7))
+                .foregroundStyle(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40.fitW)
                 .padding(.bottom, 24)
             
             Button {
                 step = 2
-            } label: {
-                RoundedRectangle(cornerRadius: 24)
-                    .fill(.orangeF86B0D)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 44)
-                    .overlay {
-                        Text("Continue")
-                            .font(.interMedium(size: 16))
-                            .foregroundStyle(.white)
-                    }
-            }
-            .buttonStyle(.plain)
-            .padding(.horizontal)
-            .padding(.bottom, 8)
-        }
-        .padding(.top)
-        .background(.white)
-        .clipShape(.rect(topLeadingRadius: 24, topTrailingRadius: 24))
-    }
-
-    private var bottomButtonThird: some View {
-        VStack(alignment: .center) {
-            Text("Discover & share")
-                .font(.interSemiBold(size: 26))
-                .foregroundStyle(.black101010)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 30.fitW)
-                .padding(.bottom)
-            
-            Text("Explore trending styles or share your favorites with friends.")
-                .font(.interMedium(size: 16))
-                .foregroundStyle(.black101010.opacity(0.7))
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 40.fitW)
-                .padding(.bottom, 24)
-            
-            Button {
-                step = 3
                 requestReviewOrOpenStore()
             } label: {
                 RoundedRectangle(cornerRadius: 24)
@@ -172,7 +136,7 @@ struct OnboardingView: View {
                     .overlay {
                         Text("Continue")
                             .font(.interMedium(size: 16))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.black0D0F0D)
                     }
             }
             .buttonStyle(.plain)
@@ -180,7 +144,45 @@ struct OnboardingView: View {
             .padding(.bottom, 8)
         }
         .padding(.top)
-        .background(.white)
+        .background(.black0D0F0D)
+        .clipShape(.rect(topLeadingRadius: 24, topTrailingRadius: 24))
+    }
+
+    private var bottomButtonThird: some View {
+        VStack(alignment: .center) {
+            Text("Discover & share")
+                .font(.interSemiBold(size: 26))
+                .foregroundStyle(.white)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 30.fitW)
+                .padding(.bottom)
+            
+            Text("Explore trending styles or share your favorites with friends.")
+                .font(.interMedium(size: 16))
+                .foregroundStyle(.white.opacity(0.7))
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 40.fitW)
+                .padding(.bottom, 24)
+            
+            Button {
+                closeOnboard()
+            } label: {
+                RoundedRectangle(cornerRadius: 24)
+                    .fill(.orangeF86B0D)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 44)
+                    .overlay {
+                        Text("Continue")
+                            .font(.interMedium(size: 16))
+                            .foregroundStyle(.black0D0F0D)
+                    }
+            }
+            .buttonStyle(.plain)
+            .padding(.horizontal)
+            .padding(.bottom, 8)
+        }
+        .padding(.top)
+        .background(.black0D0F0D)
         .clipShape(.rect(topLeadingRadius: 24, topTrailingRadius: 24))
     }
     
@@ -188,12 +190,12 @@ struct OnboardingView: View {
         VStack(alignment: .center) {
             Text("Loved by creators")
                 .font(.interSemiBold(size: 26))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
                 .padding(.bottom)
             
             Text("See why people enjoy creating with Velora.")
                 .font(.interMedium(size: 16))
-                .foregroundStyle(.black101010.opacity(0.7))
+                .foregroundStyle(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40.fitW)
                 .padding(.bottom, 24)
@@ -208,7 +210,7 @@ struct OnboardingView: View {
                     .overlay {
                         Text("Get Started")
                             .font(.interMedium(size: 16))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.black0D0F0D)
                     }
             }
             .buttonStyle(.plain)
@@ -216,11 +218,11 @@ struct OnboardingView: View {
             .padding(.bottom, 8)
         }
         .padding(.top)
-        .background(.white)
+        .background(.black0D0F0D)
         .clipShape(.rect(topLeadingRadius: 24, topTrailingRadius: 24))
     }
     
-    private let totalSteps = 4
+    private let totalSteps = 3
 
     private var progressHeader: some View {
         VStack(alignment: .trailing, spacing: 8) {
@@ -232,7 +234,7 @@ struct OnboardingView: View {
                 }
             }
             
-            if step != 3 {
+            if step != 2 {
                 Text("Skip")
                     .font(.interSemiBold(size: 16))
                     .foregroundStyle(.black101010.opacity(0.5))

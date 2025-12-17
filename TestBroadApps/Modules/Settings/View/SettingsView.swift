@@ -68,6 +68,7 @@ struct SettingsView: View {
                 .presentationDetents([.height(230)])
                 .presentationCornerRadius(40)
                 .presentationDragIndicator(.hidden)
+                .presentationBackground(.black0D0F0D)
             }
             .photosPicker(
                 isPresented: $showPhotoPicker,
@@ -141,13 +142,13 @@ struct SettingsView: View {
     
     private var content: some View {
         ZStack {
-            Color.white.ignoresSafeArea()
+            Color.black0D0F0D.ignoresSafeArea()
             
             VStack(alignment: .leading, spacing: .zero) {
                 HStack(alignment: .center) {
                     Text("Settings")
                         .font(.interSemiBold(size: 26))
-                        .foregroundStyle(.black101010)
+                        .foregroundStyle(.white)
                         .fixedSize()
                     
                     Spacer(minLength: 8)
@@ -160,7 +161,7 @@ struct SettingsView: View {
                             
                             Text("\(viewModel.imageTokens)")
                                 .font(.interMedium(size: 16))
-                                .foregroundStyle(.white)
+                                .foregroundStyle(.black0D0F0D)
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.7)
                         }
@@ -208,7 +209,7 @@ struct SettingsView: View {
                             }
                             Text("Add an avatar")
                                 .font(.interMedium(size: 16))
-                                .foregroundStyle(.black101010)
+                                .foregroundStyle(.white)
                         }
                         avatars
                     }
@@ -265,7 +266,7 @@ struct SettingsView: View {
                 
                 Text(avatar.title ?? "Avatar")
                     .font(.interMedium(size: 16))
-                    .foregroundStyle(.black101010)
+                    .foregroundStyle(.white)
             }
         }
     }
@@ -278,7 +279,7 @@ struct SettingsView: View {
                 
                 Text("Management your subscription")
                     .font(.interMedium(size: 16))
-                    .foregroundStyle(.black101010)
+                    .foregroundStyle(.white)
                 
                 Spacer()
                 
@@ -309,7 +310,7 @@ struct SettingsView: View {
                 
                 Text("Renew your subscription")
                     .font(.interMedium(size: 16))
-                    .foregroundStyle(.black101010)
+                    .foregroundStyle(.white)
                 
                 Spacer()
                 
@@ -326,7 +327,7 @@ struct SettingsView: View {
                 }
             }
         }
-        .background(.grayF5F5F5)
+        .background(.gray212321)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
     
@@ -339,7 +340,7 @@ struct SettingsView: View {
                 
                 Text("Terms of Use")
                     .font(.interMedium(size: 16))
-                    .foregroundStyle(.black101010)
+                    .foregroundStyle(.white)
                 
                 Spacer()
                 
@@ -365,7 +366,7 @@ struct SettingsView: View {
                 
                 Text("Privacy Policy")
                     .font(.interMedium(size: 16))
-                    .foregroundStyle(.black101010)
+                    .foregroundStyle(.white)
                 
                 Spacer()
                 
@@ -389,12 +390,12 @@ struct SettingsView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 20, height: 20)
-                    .foregroundStyle(.black101010)
+                    .foregroundStyle(.white)
                     .offset(y: -1)
                 
                 Text("Rate App")
                     .font(.interMedium(size: 16))
-                    .foregroundStyle(.black101010)
+                    .foregroundStyle(.white)
                 
                 Spacer()
                 
@@ -409,7 +410,7 @@ struct SettingsView: View {
                 viewModel.pushToRate()
             }
         }
-        .background(.grayF5F5F5)
+        .background(.gray212321)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
     

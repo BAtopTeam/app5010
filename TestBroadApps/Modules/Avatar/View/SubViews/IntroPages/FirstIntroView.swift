@@ -14,7 +14,7 @@ struct FirstIntroView: View {
             VStack(alignment: .leading) {
                 Text("Select Photos")
                     .font(.interSemiBold(size: 26.fitW))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black0D0F0D)
                     .padding(.bottom, 16.fitH)
                 
                 HStack(alignment: .top, spacing: 8) {
@@ -25,7 +25,7 @@ struct FirstIntroView: View {
                     
                     Text("In different conditions: from different angles, in different lighting conditions, and in different locations")
                         .font(.interMedium(size: 16.fitW))
-                        .foregroundStyle(.white.opacity(0.8))
+                        .foregroundStyle(.black0D0F0D.opacity(0.8))
                 }
                 .padding(.bottom, 16.fitH)
                 
@@ -37,7 +37,7 @@ struct FirstIntroView: View {
                     
                     Text("Appearance features: hairstyle, makeup, face, colors")
                         .font(.interMedium(size: 16.fitW))
-                        .foregroundStyle(.white.opacity(0.8))
+                        .foregroundStyle(.black0D0F0D.opacity(0.8))
                 }
                 .padding(.bottom, 43.fitH)
             }

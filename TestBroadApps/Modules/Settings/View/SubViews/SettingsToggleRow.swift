@@ -20,7 +20,7 @@ struct SettingsToggleRow: View {
             
             Text(title)
                 .font(.interMedium(size: 16))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
             
             Spacer()
             
@@ -29,7 +29,7 @@ struct SettingsToggleRow: View {
         }
         .padding(.vertical, 18)
         .padding(.horizontal, 12)
-        .background(Color.grayF5F5F5)
+        .background(Color.gray212321)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }

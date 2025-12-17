@@ -22,7 +22,7 @@ struct UploadPhotosView: View {
                 if photos.isEmpty {
                     Text("Upload from 10 to 50 photos")
                         .font(.interMedium(size: 16))
-                        .foregroundStyle(.black101010.opacity(0.8))
+                        .foregroundStyle(.white.opacity(0.8))
                 }
                 
                 if photos.isEmpty {

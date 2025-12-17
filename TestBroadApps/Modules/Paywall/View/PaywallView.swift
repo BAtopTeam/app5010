@@ -19,9 +19,7 @@ struct PaywallView: View {
 
     @State private var showPolicy = false
     @State private var showTerms = false
-    
-    private let images: [ImageResource] = [.pw1, .pw2, .pw3, .pw4]
-    
+        
     var body: some View {
         ZStack(alignment: .top) {
 
@@ -45,20 +43,6 @@ struct PaywallView: View {
                         .frame(width: 276.fitW, height: 114.fitH)
                 }
                 .frame(maxWidth: .infinity)
-                .overlay(alignment: .bottomLeading) {
-                    Image(.genIcon)
-                        .resizable()
-                        .frame(width: 18, height: 18)
-                        .padding(.leading, 13.fitW)
-                        .offset(y: -10)
-                }
-                .overlay(alignment: .topTrailing) {
-                    Image(.genIcon)
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .padding(.trailing, 6.fitW)
-                        .offset(y: 10)
-                }
                 
                 Spacer(minLength: 0)
 
@@ -155,7 +139,7 @@ struct PaywallView: View {
                 
                 Text("Сancel at any time")
                     .font(.system(size: 15))
-                    .foregroundStyle(.black101010.opacity(0.7))
+                    .foregroundStyle(.white.opacity(0.7))
             }
             .padding(.bottom, 20)
             
@@ -171,7 +155,7 @@ struct PaywallView: View {
                     .overlay {
                         Text("Continue")
                             .font(.interMedium(size: 16))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.black)
                     }
             }
             .buttonStyle(.plain)
@@ -193,7 +177,7 @@ struct PaywallView: View {
         .padding(.horizontal)
         .padding(.top)
         .padding(.bottom, 34)
-        .background(.white)
+        .background(.black0D0F0D)
         .clipShape(.rect(topLeadingRadius: 24, topTrailingRadius: 24))
     }
     

@@ -13,7 +13,7 @@ struct ResultView: View {
     
     var body: some View {
         ZStack {
-            Color.white.ignoresSafeArea()
+            Color.black0D0F0D.ignoresSafeArea()
             
             VStack(spacing: 0) {
                 header
@@ -22,14 +22,12 @@ struct ResultView: View {
                 
                 if let result = viewModel.result, !result.isEmpty {
                     if result.starts(with: "http") {
-                        // 🌐 сетевой URL
                         KFImage(URL(string: result))
                             .resizable()
                             .scaledToFit()
                             .padding(.horizontal)
                             .padding(.bottom)
                     } else {
-                        // 📁 локальный файл
                         if let image = UIImage(contentsOfFile: result) {
                             Image(uiImage: image)
                                 .resizable()
@@ -56,7 +54,7 @@ struct ResultView: View {
             resultButtons
                 .padding(.horizontal)
                 .padding(.top, 8)
-                .background(Color.white.ignoresSafeArea(edges: .bottom))
+                .background(Color.black0D0F0D.ignoresSafeArea(edges: .bottom))
         }
         .sheet(item: $sharePayload) { payload in
             ShareSheet(items: payload.items)
@@ -80,7 +78,7 @@ struct ResultView: View {
         .overlay {
             Text(isLocal ? "Image" : "Effects")
                 .font(.interSemiBold(size: 18))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
         }
         .padding(.horizontal)
         .padding(.bottom)
@@ -95,7 +93,7 @@ struct ResultView: View {
                 .overlay {
                     HStack {
                         Image(.downloadIcon).resizable().frame(width: 24, height: 24)
-                        Text("Download").font(.interMedium(size: 16)).foregroundStyle(.white)
+                        Text("Download").font(.interMedium(size: 16)).foregroundStyle(.black0D0F0D)
                     }
                 }
                 .onTapGesture {
@@ -105,13 +103,13 @@ struct ResultView: View {
                 }
             
             RoundedRectangle(cornerRadius: 24)
-                .fill(.white)
+                .fill(.black0D0F0D)
                 .strokeBorder(Color.orangeF86B0D, lineWidth: 1.5)
                 .frame(height: 44)
                 .overlay {
                     HStack {
                         Image(.shareIcon).resizable().frame(width: 24, height: 24)
-                        Text("Share").font(.interMedium(size: 16)).foregroundStyle(.black101010)
+                        Text("Share").font(.interMedium(size: 16)).foregroundStyle(.white)
                     }
                 }
                 .onTapGesture {

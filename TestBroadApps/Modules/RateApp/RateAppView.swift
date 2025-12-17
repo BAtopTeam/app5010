@@ -18,19 +18,19 @@ struct RateAppView: View {
 
             Image(.bigHeartIcon)
                 .resizable()
-                .frame(maxWidth: 278.fitW, maxHeight: 278.fitW)
+                .frame(maxWidth: 187.fitW, maxHeight: 187.fitW)
                 .padding(.bottom, 12)
 
             VStack(spacing: .zero) {
                 Text("Would you like to rate our app?")
                     .font(.interSemiBold(size: 26))
                     .multilineTextAlignment(.center)
-                    .foregroundStyle(.orangeF86B0D)
+                    .foregroundStyle(.white)
                     .padding(.bottom)
                 
                 Text("Please rate our app so we can improve it for you and make it even cooler.")
                     .font(.interMedium(size: 16))
-                    .foregroundStyle(.black101010.opacity(0.7))
+                    .foregroundStyle(.white.opacity(0.7))
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 32)
             }
@@ -39,14 +39,14 @@ struct RateAppView: View {
             HStack(spacing: 4) {
                 HStack {
                     RoundedRectangle(cornerRadius: 24)
-                        .fill(.grayF5F5F5)
+                        .fill(.gray212321)
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 44)
                 .overlay {
                     Text("Later")
                         .font(.interMedium(size: 15))
-                        .foregroundStyle(.black101010)
+                        .foregroundStyle(.white)
                 }
                 .onTapGesture {
                     router.pop()
@@ -61,7 +61,7 @@ struct RateAppView: View {
                 .overlay {
                     Text("Rate now")
                         .font(.interMedium(size: 16))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.black0D0F0D)
                 }
                 .onTapGesture {
                     requestReviewOrOpenStore()
@@ -72,6 +72,7 @@ struct RateAppView: View {
 
             Spacer()
         }
+        .background(.black0D0F0D)
         .overlay(alignment: .top) {
             headerSecond
         }
@@ -94,7 +95,7 @@ struct RateAppView: View {
         .overlay(alignment: .center) {
             Text("Rate us")
                 .font(.interSemiBold(size: 18))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
         }
     }
     

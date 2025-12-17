@@ -24,7 +24,7 @@ struct TopBar: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(title)
                     .font(.interMedium(size: 18))
-                    .foregroundStyle(.black101010)
+                    .foregroundStyle(.white)
 
                 HStack(spacing: 4) {
                     Image(.littleStarsIcon)
@@ -32,7 +32,7 @@ struct TopBar: View {
                         .frame(width: 16, height: 16)
                     Text(badge)
                         .font(.interMedium(size: 16))
-                        .foregroundStyle(.black101010.opacity(0.6))
+                        .foregroundStyle(.white.opacity(0.6))
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -45,6 +45,6 @@ struct TopBar: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 8)
-        .background(.white)
+        .background(.black0D0F0D)
     }
 }

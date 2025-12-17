@@ -29,7 +29,7 @@ struct PhotoGenView: View {
     
     var body: some View {
         ZStack {
-            Color.white.ignoresSafeArea()
+            Color.black0D0F0D.ignoresSafeArea()
             VStack {
                 
                 header
@@ -81,6 +81,7 @@ struct PhotoGenView: View {
             .presentationDetents([.height(206)])
             .presentationCornerRadius(40)
             .presentationDragIndicator(.hidden)
+            .presentationBackground(.black0D0F0D)
         }
         .sheet(isPresented: $viewModel.showTokenPaywall) {
             Task {
@@ -118,7 +119,7 @@ struct PhotoGenView: View {
             
             Text("Image generation")
                 .font(.interSemiBold(size: 18))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
             
             Spacer(minLength: 0)
             
@@ -129,7 +130,7 @@ struct PhotoGenView: View {
                 
                 Text("\(viewModel.tokensCount)")
                     .font(.interMedium(size: 16))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black0D0F0D)
                     .lineLimit(1)
                     .minimumScaleFactor(0.7)
             }
@@ -159,7 +160,7 @@ struct PhotoGenView: View {
     
     private var mainView: some View {
         ZStack {
-            Color.grayF5F5F5
+            Color.gray212321
             
             KFImage(URL(string: viewModel.photo ?? ""))
                 .resizable()
@@ -172,7 +173,7 @@ struct PhotoGenView: View {
     private var bottomButtons: some View {
         VStack(spacing: 8) {
             RoundedRectangle(cornerRadius: 24)
-                .fill(.white)
+                .fill(.black0D0F0D)
                 .strokeBorder(Color.orangeF86B0D, lineWidth: 1.5)
                 .frame(height: 44.fitH)
                 .overlay {
@@ -183,7 +184,7 @@ struct PhotoGenView: View {
                         
                         Text("Use avatar")
                             .font(.interMedium(size: 16))
-                            .foregroundStyle(.black101010)
+                            .foregroundStyle(.white)
                     }
                 }
                 .onTapGesture {
@@ -201,7 +202,7 @@ struct PhotoGenView: View {
                         
                         Text("Generate")
                             .font(.interMedium(size: 16))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.black0D0F0D)
                     }
                 }
                 .padding(.bottom)
@@ -221,7 +222,7 @@ struct PhotoGenView: View {
     private var secondStep: some View {
         VStack(spacing: .zero) {
             ZStack {
-                Color.grayF5F5F5
+                Color.gray212321
             }
             .clipShape(RoundedRectangle(cornerRadius: 16))
         }
@@ -231,12 +232,12 @@ struct PhotoGenView: View {
             VStack(spacing: .zero) {
                 ProgressView()
                     .frame(width: 18, height: 18)
-                    .tint(.black101010)
+                    .tint(.white)
                     .padding(.bottom)
                 
                 Text("The image is generated, wait for the end of the process")
                     .font(.interMedium(size: 15))
-                    .foregroundStyle(.black101010.opacity(0.7))
+                    .foregroundStyle(.white.opacity(0.7))
                     .padding(.horizontal, 48.fitW)
                     .multilineTextAlignment(.center)
             }
@@ -260,7 +261,7 @@ struct PhotoGenView: View {
     private var mainViewForThirdStep: some View {
         VStack {
             ZStack(alignment: .center) {
-                Color.grayF5F5F5
+                Color.gray212321
                 KFImage(URL(string: viewModel.result?.result ?? ""))
                     .placeholder {
                         ProgressView()
@@ -290,7 +291,7 @@ struct PhotoGenView: View {
                         
                         Text("Download")
                             .font(.interMedium(size: 16))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.black0D0F0D)
                     }
                 }
                 .onTapGesture {
@@ -300,7 +301,7 @@ struct PhotoGenView: View {
                 }
             
             RoundedRectangle(cornerRadius: 24)
-                .fill(.white)
+                .fill(.black0D0F0D)
                 .strokeBorder(Color.orangeF86B0D, lineWidth: 1.5)
                 .frame(height: 44.fitH)
                 .overlay {
@@ -311,7 +312,7 @@ struct PhotoGenView: View {
                         
                         Text("Share")
                             .font(.interMedium(size: 16))
-                            .foregroundStyle(.black101010)
+                            .foregroundStyle(.white)
                     }
                 }
                 .onTapGesture {

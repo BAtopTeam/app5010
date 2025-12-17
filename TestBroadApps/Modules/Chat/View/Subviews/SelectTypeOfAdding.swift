@@ -10,7 +10,7 @@ struct SelectTypeOfAddingSheet: View {
     var body: some View {
         VStack(spacing: 20) {
             Capsule()
-                .fill(Color.black101010.opacity(0.3))
+                .fill(Color.white.opacity(0.3))
                 .frame(width: 40, height: 4)
                 .padding(.top, 8)
             
@@ -21,11 +21,11 @@ struct SelectTypeOfAddingSheet: View {
                 } label: {
                     Text("Add from Gallery")
                         .font(.interMedium(size: 16))
-                        .foregroundStyle(.black101010)
+                        .foregroundStyle(.white)
                         .frame(maxWidth: .infinity, minHeight: 44)
                         .background(
                             RoundedRectangle(cornerRadius: 24)
-                                .fill(Color.grayF5F5F5)
+                                .fill(Color.gray212321)
                         )
                 }
                 .buttonStyle(.plain)
@@ -36,11 +36,11 @@ struct SelectTypeOfAddingSheet: View {
                 } label: {
                     Text("Add from Camera")
                         .font(.interMedium(size: 16))
-                        .foregroundStyle(.black101010)
+                        .foregroundStyle(.white)
                         .frame(maxWidth: .infinity, minHeight: 44)
                         .background(
                             RoundedRectangle(cornerRadius: 24)
-                                .fill(Color.grayF5F5F5)
+                                .fill(Color.gray212321)
                         )
                 }
                 .buttonStyle(.plain)
@@ -50,7 +50,7 @@ struct SelectTypeOfAddingSheet: View {
             Spacer()
         }
         .frame(height: 180)
-        .background(Color.white)
+        .background(Color.black0D0F0D)
         .clipShape(RoundedRectangle(cornerRadius: 40))
     }
 }

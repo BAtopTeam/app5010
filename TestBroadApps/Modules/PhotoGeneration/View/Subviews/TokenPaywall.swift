@@ -21,19 +21,19 @@ struct TokenPaywall: View {
     var body: some View {
         VStack(alignment: .center, spacing: .zero) {
             Capsule()
-                .fill(Color.black101010.opacity(0.3))
+                .fill(Color.white.opacity(0.3))
                 .frame(width: 40, height: 4)
                 .padding(.top, 8)
                 .padding(.bottom, 20)
             
             Text("Get more tokens")
                 .font(.interSemiBold(size: 22))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
                 .padding(.bottom, 12)
             
             Text("Top up your balance to generate more images")
                 .font(.interMedium(size: 16))
-                .foregroundStyle(.black101010.opacity(0.7))
+                .foregroundStyle(.white.opacity(0.7))
                 .padding(.bottom, 24)
   
             SubscriptionOptionView(
@@ -106,7 +106,7 @@ struct TokenPaywall: View {
                     .overlay {
                         Text("Continue")
                             .font(.interMedium(size: 16))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.black)
                     }
             }
             .buttonStyle(.plain)
@@ -127,7 +127,7 @@ struct TokenPaywall: View {
             .padding(.bottom)
         }
         .frame(height: 510)
-        .background(Color.white)
+        .background(Color.black0D0F0D)
         .padding(.horizontal)
         .safari(urlString: "https://docs.google.com/document/d/1l17QMMa0Hjz4ycyAGM9Qj_yIL-Zt-qSAqYW2qdHucW4/edit?usp=sharing", isPresented: $showPolicy)
         .safari(urlString: "https://docs.google.com/document/d/1sM80Feufp8jTebygWDq-rj00Ju19fRSkI9GWaodUeRA/edit?usp=sharing", isPresented: $showTerms)

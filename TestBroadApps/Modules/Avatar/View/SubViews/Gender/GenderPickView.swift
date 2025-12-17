@@ -15,14 +15,14 @@ struct GenderPickView: View {
         VStack(alignment: .center) {
             Text("Сhoose the gender of your avatar")
                 .font(.interSemiBold(size: 26.fitW))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 30.fitW)
                 .padding(.bottom, 16.fitH)
             
             Text("This will help you create your own personal avatar.")
                 .font(.interMedium(size: 16.fitW))
-                .foregroundStyle(.black101010.opacity(0.7))
+                .foregroundStyle(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 70.fitW)
             

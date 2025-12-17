@@ -106,11 +106,11 @@ struct MessageRow: View {
                 Text(message.text)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 6)
-                    .foregroundStyle(.black101010)
+                    .foregroundStyle(.white)
                     .font(.interMedium(size: 16))
                     .background(
                         RoundedRectangle(cornerRadius: 24)
-                            .fill(Color.grayF5F5F5)
+                            .fill(Color.gray212321)
                     )
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }

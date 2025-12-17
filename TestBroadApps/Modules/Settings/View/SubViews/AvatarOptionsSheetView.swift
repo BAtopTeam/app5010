@@ -19,7 +19,7 @@ struct AvatarOptionsSheetView: View {
     var body: some View {
         VStack(spacing: 20) {
             Capsule()
-                .fill(Color.black101010.opacity(0.3))
+                .fill(Color.white.opacity(0.3))
                 .frame(width: 40, height: 4)
                 .padding(.top, 8)
             
@@ -28,13 +28,13 @@ struct AvatarOptionsSheetView: View {
                     showRenameAlert = true
                 } label: {
                     RoundedRectangle(cornerRadius: 24)
-                        .fill(.grayF5F5F5)
+                        .fill(.gray212321)
                         .frame(maxWidth: .infinity)
                         .frame(height: 44)
                         .overlay {
                             Text("Rename the avatar")
                                 .font(.interMedium(size: 16))
-                                .foregroundStyle(.black101010)
+                                .foregroundStyle(.white)
                         }
                 }
                 
@@ -42,26 +42,26 @@ struct AvatarOptionsSheetView: View {
                     change()
                 } label: {
                     RoundedRectangle(cornerRadius: 24)
-                        .fill(.grayF5F5F5)
+                        .fill(.gray212321)
                         .frame(maxWidth: .infinity)
                         .frame(height: 44)
                         .overlay {
                             Text("Change the avatar photo")
                                 .font(.interMedium(size: 16))
-                                .foregroundStyle(.black101010)
+                                .foregroundStyle(.white)
                         }
                 }
                 Button {
                     delete()
                 } label: {
                     RoundedRectangle(cornerRadius: 24)
-                        .fill(.grayF5F5F5)
+                        .fill(.gray212321)
                         .frame(maxWidth: .infinity)
                         .frame(height: 44)
                         .overlay {
                             Text("Delete an avatar")
                                 .font(.interMedium(size: 16))
-                                .foregroundStyle(.black101010)
+                                .foregroundStyle(.white)
                         }
                 }
                 

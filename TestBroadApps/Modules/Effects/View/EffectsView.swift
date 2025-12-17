@@ -13,7 +13,7 @@ struct EffectsView: View {
 
     var body: some View {
         ZStack {
-            Color.white
+            Color.black0D0F0D
                 .ignoresSafeArea()
             
             if viewModel.categories.isEmpty {

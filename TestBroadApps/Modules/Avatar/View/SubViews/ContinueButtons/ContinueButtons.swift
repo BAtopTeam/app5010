@@ -19,7 +19,7 @@ struct ContinueButtonName: View {
         } label: {
             Text("Continue")
                 .font(.interMedium(size: 16))
-                .foregroundStyle(.white)
+                .foregroundStyle(.black0D0F0D)
                 .frame(maxWidth: .infinity, maxHeight: 44)
                 .background(isDisabled ? Color.orangeF86B0D.opacity(0.5) : Color.orangeF86B0D)
                 .clipShape(RoundedRectangle(cornerRadius: 24))
@@ -39,7 +39,7 @@ struct ContinueButtonGender: View {
         } label: {
             Text("Continue")
                 .font(.interMedium(size: 16))
-                .foregroundStyle(.white)
+                .foregroundStyle(.black0D0F0D)
                 .frame(maxWidth: .infinity, maxHeight: 44)
                 .background(Color.orangeF86B0D)
                 .clipShape(RoundedRectangle(cornerRadius: 24))
@@ -59,9 +59,9 @@ struct ContinueButtonIntro: View {
         } label: {
             Text("Continue")
                 .font(.interMedium(size: 16))
-                .foregroundStyle(.black101010)
+                .foregroundStyle(.white)
                 .frame(maxWidth: .infinity, maxHeight: 44)
-                .background(Color.white)
+                .background(Color.black)
                 .clipShape(RoundedRectangle(cornerRadius: 24))
         }
         .buttonStyle(.plain)
@@ -97,7 +97,7 @@ struct ContinueButtonUpload: View {
             } label: {
                 Text("Done")
                     .font(.interMedium(size: 16))
-                    .foregroundColor(.white)
+                    .foregroundColor(.black0D0F0D)
                     .frame(maxWidth: .infinity, maxHeight: 44)
                     .background(
                         photoCount >= 10
@@ -111,6 +111,7 @@ struct ContinueButtonUpload: View {
         }
         .padding(.horizontal)
         .padding(.bottom)
+        .background(.black0D0F0D)
     }
 }
 
@@ -140,7 +141,7 @@ struct ContinueButtonResult: View {
             } label: {
                 Text("To the avatar")
                     .font(.interMedium(size: 16))
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .frame(maxWidth: .infinity, maxHeight: 44)
                     .background( Color.orangeF86B0D)
                     .clipShape(RoundedRectangle(cornerRadius: 24))
@@ -149,6 +150,7 @@ struct ContinueButtonResult: View {
         }
         .padding(.horizontal)
         .padding(.bottom)
+        .background(.black0D0F0D)
     }
 }
 #Preview {

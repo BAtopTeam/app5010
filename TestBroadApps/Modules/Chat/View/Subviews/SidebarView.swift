@@ -71,7 +71,7 @@ struct SidebarView: View {
                         .frame(width: 20, height: 20)
                     Text("New chat")
                         .font(.interMedium(size: 16))
-                        .foregroundStyle(.black101010)
+                        .foregroundStyle(.white)
                     Spacer()
                 }
                 .padding(.horizontal, 16)
@@ -80,7 +80,7 @@ struct SidebarView: View {
 
             Text("Chats")
                 .font(.interMedium(size: 15))
-                .foregroundStyle(.black101010.opacity(0.7))
+                .foregroundStyle(.white.opacity(0.7))
                 .padding(.leading)
                 .padding(.bottom)
 
@@ -92,7 +92,7 @@ struct SidebarView: View {
                             Text(chat.title)
                                 .lineLimit(1)
                                 .font(.interMedium(size: 16))
-                                .foregroundStyle(.black101010)
+                                .foregroundStyle(.white)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
                                     viewModel.selectedChat = chat
@@ -149,7 +149,7 @@ struct SidebarView: View {
                                 }
                             Text("Get premium")
                                 .font(.interMedium(size: 16))
-                                .foregroundStyle(.black101010)
+                                .foregroundStyle(.white)
                             Spacer()
                         }
                         .padding(.horizontal)
@@ -157,11 +157,11 @@ struct SidebarView: View {
                         .padding(.bottom, 8)
                     }
                 }
-                .background(.white)
+                .background(.black0D0F0D)
             }
         }
         .frame(maxHeight: .infinity, alignment: .top)
-        .background(.white)
+        .background(.black0D0F0D)
 
         // MARK: - Rename sheet
         .sheet(item: $chatToRename, onDismiss: { newTitle = "" }) { chat in
