@@ -16,6 +16,8 @@ final class EffectsViewModel: ObservableObject {
 
     @Published var categories: [TemplateCategory] = []
     @Published var showPaywall = false
+    
+    @AppStorage("firstPaywall") private var firstPaywall: Bool = false
 
     init(router: Router, services: ServiceLayer) {
         self.router = router
@@ -28,7 +30,6 @@ final class EffectsViewModel: ObservableObject {
                 self.categories = services.templateManager.getTemplates()
             }
 
-            // ⏳ Делаем паузу перед проверкой
             try? await Task.sleep(nanoseconds: 10_000_000_000) // 10 секунд
 
             await checkPaywallCondition()
@@ -38,11 +39,15 @@ final class EffectsViewModel: ObservableObject {
 
     @MainActor
     private func checkPaywallCondition() {
-        if !Apphud.hasPremiumAccess() {
-            print("🟠 Нет подписки — показываем Paywall")
-            showPaywall = true
+        if firstPaywall {
+            if !Apphud.hasPremiumAccess() {
+                print("🟠 Нет подписки — показываем Paywall")
+                showPaywall = true
+            } else {
+                print("🟢 У пользователя активная подписка — Paywall не показываем")
+            }
         } else {
-            print("🟢 У пользователя активная подписка — Paywall не показываем")
+            firstPaywall = true
         }
     }
     

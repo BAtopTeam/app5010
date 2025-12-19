@@ -69,7 +69,7 @@ struct OnboardingView: View {
                         closeOnboard()
                     }
                 }
-                .transition(.move(edge: .trailing))
+                .transition(.opacity)
                 .zIndex(2)
             }
         }
