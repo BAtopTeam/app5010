@@ -8,80 +8,83 @@
 import Foundation
 import SwiftUI
 import StoreKit
+import ApphudSDK
 
 struct OnboardingView: View {
     
     @State private var step: Int = 0
     @State private var isShowingAlert: Bool = false
-    
+    @AppStorage("didShowPaywallAfterStep2") private var didShowPaywallAfterStep2 = false
+    @State private var showPaywall = false
+
     var closeOnboard: () -> Void
     
     var body: some View {
-        Group {
-            if step == 0 {
-                VStack {
-                    Spacer()
+        ZStack {
+            Group {
+                if step == 0 {
+                    VStack {
+                        Spacer()
+                        
+                        Image(.onb1)
+                            .resizable()
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 474.fitH)
+                        bottomButtonFirst
+                    }
                     
-                    Image(.onb1)
-                        .resizable()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 474.fitH)
-                    bottomButtonFirst
+                } else if step == 1 {
+                    VStack {
+                        Spacer()
+                        Image(.onb2)
+                            .resizable()
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 474.fitH)
+                        
+                        bottomButtonSecond
+                    }
+                    
+                } else if step == 2 {
+                    VStack {
+                        Spacer()
+                        
+                        Image(.onb3)
+                            .resizable()
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 530.fitH)
+                        
+                        bottomButtonThird
+                    }
+                    
                 }
-                
-            } else if step == 1 {
-                VStack {
-                    Spacer()
-                    Image(.onb2)
-                        .resizable()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 474.fitH)
-                    
-                    bottomButtonSecond
-                }
-                
-            } else if step == 2 {
-                VStack {
-                    Spacer()
-                    
-                    Image(.onb3)
-                        .resizable()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 530.fitH)
-                    
-                    bottomButtonThird
-                }
-                
             }
-//            else if step == 3 {
-//                
-//                VStack {
-//                    Spacer()
-//                    
-//                    Image(.onb4)
-//                        .resizable()
-//                        .frame(width: UIScreen.main.bounds.width)
-//                        .frame(height: 500.fitH)
-//                    
-//                    bottomButtonFourth
-//                }
-//            }
+            .background(.black0D0F0D)
+            .overlay(alignment: .top) {
+                progressHeader
+            }
+            
+            if showPaywall {
+                PaywallView {
+                    withAnimation {
+                        closeOnboard()
+                    }
+                }
+                .transition(.move(edge: .trailing))
+                .zIndex(2)
+            }
         }
-        .background(.black0D0F0D)
-        .overlay(alignment: .top) {
-            progressHeader
-        }
+        .animation(.spring(response: 0.35, dampingFraction: 0.9), value: showPaywall)
     }
 
     private var bottomButtonFirst: some View {
         VStack(alignment: .center) {
             Text("Welcome to the app")
-                .font(.interSemiBold(size: 26))
+                .font(.interSemiBold(size: 26.fitW))
                 .foregroundStyle(.white)
                 .padding(.bottom, 12)
             
             Text("Turn your ideas into stunning visuals and bring your imagination to life with AI.")
-                .font(.interMedium(size: 16))
+                .font(.interMedium(size: 16.fitW))
                 .foregroundStyle(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40.fitW)
@@ -112,14 +115,14 @@ struct OnboardingView: View {
     private var bottomButtonSecond: some View {
         VStack(alignment: .center) {
             Text("Just describe your idea")
-                .font(.interSemiBold(size: 26))
+                .font(.interSemiBold(size: 26.fitW))
                 .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 30.fitW)
                 .padding(.bottom)
             
             Text("Type what you imagine, and Velora brings it to life.")
-                .font(.interMedium(size: 16))
+                .font(.interMedium(size: 16.fitW))
                 .foregroundStyle(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40.fitW)
@@ -151,21 +154,29 @@ struct OnboardingView: View {
     private var bottomButtonThird: some View {
         VStack(alignment: .center) {
             Text("Discover & share")
-                .font(.interSemiBold(size: 26))
+                .font(.interSemiBold(size: 26.fitW))
                 .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 30.fitW)
                 .padding(.bottom)
-            
+
             Text("Explore trending styles or share your favorites with friends.")
-                .font(.interMedium(size: 16))
+                .font(.interMedium(size: 16.fitW))
                 .foregroundStyle(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40.fitW)
                 .padding(.bottom, 24)
-            
+                .fixedSize(horizontal: false, vertical: true)
+
             Button {
-                closeOnboard()
+                if !didShowPaywallAfterStep2 {
+                    didShowPaywallAfterStep2 = true
+                    if !Apphud.hasPremiumAccess() {
+                        showPaywall = true
+                    }
+                } else {
+                    closeOnboard()
+                }
             } label: {
                 RoundedRectangle(cornerRadius: 24)
                     .fill(.orangeF86B0D)
@@ -185,16 +196,17 @@ struct OnboardingView: View {
         .background(.black0D0F0D)
         .clipShape(.rect(topLeadingRadius: 24, topTrailingRadius: 24))
     }
+
     
     private var bottomButtonFourth: some View {
         VStack(alignment: .center) {
             Text("Loved by creators")
-                .font(.interSemiBold(size: 26))
+                .font(.interSemiBold(size: 26.fitW))
                 .foregroundStyle(.white)
                 .padding(.bottom)
             
             Text("See why people enjoy creating with Velora.")
-                .font(.interMedium(size: 16))
+                .font(.interMedium(size: 16.fitW))
                 .foregroundStyle(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 40.fitW)
@@ -243,6 +255,7 @@ struct OnboardingView: View {
                     .contentShape(Rectangle())
                     .onTapGesture {
                         step = 3
+                        requestReviewOrOpenStore()
                     }
             }
         }

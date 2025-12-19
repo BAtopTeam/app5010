@@ -10,9 +10,11 @@ import WebKit
 
 struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
-
     @ObservedObject private var viewModel = PurchaseManager.shared
+    @State private var canClose = false
 
+    var onClose: (() -> Void)?
+    
     @State private var offset: CGFloat = 0
     @State private var animationActive = true
     @State private var selectedSubscriptionID: String = "yearly_39.99_nottrial"
@@ -51,6 +53,14 @@ struct PaywallView: View {
             }
             .ignoresSafeArea()
         }
+        .onAppear {
+            canClose = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                withAnimation(.easeInOut(duration: 0.2)) {
+                    canClose = true
+                }
+            }
+        }
         .overlay(alignment: .top) {
             header
         }
@@ -63,6 +73,7 @@ struct PaywallView: View {
                      message: Text(""),
                      dismissButton: .default(Text("OK")) {
                          dismiss()
+                         onClose?()
                      }
                  )
              } else {
@@ -81,19 +92,23 @@ struct PaywallView: View {
         HStack {
             Spacer()
 
-            Button {
-                dismiss()
-            } label: {
-                Image(.littleCloseIcon)
-                    .resizable()
-                    .frame(width: 24, height: 24)
+            if canClose {
+                Button {
+                    dismiss()
+                    onClose?()
+                } label: {
+                    Image(.littleCloseIcon)
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                }
+                .buttonStyle(.plain)
+                .transition(.opacity)
             }
-            .buttonStyle(.plain)
-
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal)
     }
+
     
     func startInfiniteScroll(totalWidth: CGFloat) {
         Task {

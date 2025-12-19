@@ -14,7 +14,10 @@ struct CreateAvatarView: View {
     @State private var showPhotoPicker = false
     @State private var selectedPhotoItems: [PhotosPickerItem] = []
     @State private var selectedImage: UIImage? = nil
-
+    
+    @State private var showPhotoLimitAlert = false
+    private let maxPhotos = 50
+    
     var body: some View {
         ZStack {
             backgroundColor
@@ -38,17 +41,42 @@ struct CreateAvatarView: View {
             selection: $selectedPhotoItems,
             matching: .images
         )
-        .onChange(of: selectedPhotoItems) { newItems, _ in
+        .onChange(of: selectedPhotoItems) { _, newItems in
             Task {
-                for item in newItems {
+                let remaining = max(0, maxPhotos - viewModel.photos.count)
+                guard remaining > 0 else {
+                    selectedPhotoItems.removeAll()
+                    showPhotoLimitAlert = true
+                    return
+                }
+                
+                let itemsToLoad = Array(newItems.prefix(remaining))
+                if newItems.count > remaining {
+                    showPhotoLimitAlert = true
+                }
+                
+                for item in itemsToLoad {
                     if let data = try? await item.loadTransferable(type: Data.self),
                        let image = UIImage(data: data) {
                         viewModel.photos.append(image)
                     }
                 }
+                
                 selectedPhotoItems.removeAll()
             }
         }
+        .alert(
+            "You can add up to \(maxPhotos) photos",
+            isPresented: Binding(
+                get: { showPhotoLimitAlert },
+                set: { showPhotoLimitAlert = $0 }
+            )
+        ) {
+            Button("OK", role: .cancel) {
+                showPhotoLimitAlert = false
+            }
+        }
+        
         .navigationBarHidden(true)
         .onAppear {
             Task {
@@ -112,31 +140,31 @@ struct CreateAvatarView: View {
                 viewModel.back()
             }
             .padding(.bottom, 24.fitH)
-
+            
         case .genderSelect:
             HeaderForGender {
                 viewModel.back()
             }
             .padding(.bottom, 24.fitH)
-
+            
         case .nameInput:
             HeaderForGender {
                 viewModel.back()
             }
             .padding(.bottom, 24.fitH)
-
+            
         case .photoUpload:
             HeaderForUpload(countOfPhotos: viewModel.photos.count, countOfAvatars: $viewModel.avatarTokens) {
                 viewModel.back()
             }
             .padding(.bottom, 24.fitH)
-
+            
         case .generating:
             HeaderForGeneration(countOfAvatars: $viewModel.avatarTokens) {
                 viewModel.back()
             }
             .padding(.bottom, 16.fitH)
-
+            
         case .showResult:
             HeaderForGeneration(countOfAvatars: $viewModel.avatarTokens) {
                 viewModel.back()
@@ -168,7 +196,11 @@ struct CreateAvatarView: View {
             ContinueButtonUpload(
                 photoCount: viewModel.photos.count,
                 onAddTap: {
-                    showPhotoPicker = true
+                    if viewModel.photos.count < maxPhotos {
+                        showPhotoPicker = true
+                    } else {
+                        showPhotoLimitAlert = true
+                    }
                 },
                 onDoneTap: {
                     viewModel.next()
@@ -184,7 +216,7 @@ struct CreateAvatarView: View {
             } onToTheAvatar: {
                 viewModel.back()
             }
-
+            
         case .showErrors:
             EmptyView()
         }
@@ -230,7 +262,7 @@ struct CreateAvatarView: View {
                         .padding(8)
                     }
                     .padding()
-
+                
             }
             .transition(.opacity)
         }
@@ -274,7 +306,7 @@ struct CreateAvatarView: View {
             } onSecondary: {
                 print("Delete")
             }
-
+            
         }
     }
 }

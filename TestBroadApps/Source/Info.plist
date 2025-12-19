@@ -21,7 +21,7 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>This app saves generated photos to your photo library.</string>
+	<string>HigAI needs access to your photo library to save the AI-generated content you create — and to let you edit your own photos and videos.</string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>We use your ID for advertising purposes.</string>
 	<key>NSCameraUsageDescription</key>
