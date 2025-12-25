@@ -76,7 +76,9 @@ final class TemplateManager {
     private func fetchTemplates() async throws -> [TemplateCategory] {
         let urlString = "https://aiphotoappfull.webberapp.shop/api/generations/fotobudka/image-templates?lang=en&gender=f&showAll=false"
         guard let url = URL(string: urlString) else { throw URLError(.badURL) }
-        return try await network.get(url: url, headers: ["accept": "application/json"])
+
+        let items: [TemplateCategory] = try await network.get(url: url, headers: ["accept": "application/json"])
+        return items.map { $0.replacingTitlesIfNeeded() }
     }
 
     private func saveTemplates(_ templates: [TemplateCategory]) throws {

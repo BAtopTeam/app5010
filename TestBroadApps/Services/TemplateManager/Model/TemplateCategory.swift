@@ -58,3 +58,38 @@ struct Template: Codable, Identifiable, Hashable {
     let videoPrompt: String?
     let isEnabled: Bool?
 }
+
+extension TemplateCategory {
+    func replacingTitlesIfNeeded() -> TemplateCategory {
+        let newTitle: String? = {
+            guard let title else { return nil }
+            switch title {
+            case "Barbie 💖": return "Pink Fashion"
+            case "Wednesday🕷️": return "Gothic Style"
+            case "Superman👊🏼": return "Superhero Style"
+            case "Squid Game": return "Survival Game"
+            default: return title
+            }
+        }()
+
+        return TemplateCategory(
+            id: id,
+            title: newTitle,
+            description: description,
+            preview: preview,
+            avatar1Preview: avatar1Preview,
+            avatar2Preview: avatar2Preview,
+            previewWoman: previewWoman,
+            previewMan: previewMan,
+            code: code,
+            isNew: isNew,
+            isCouple: isCouple,
+            isGirlfriends: isGirlfriends,
+            groupPreview: groupPreview,
+            previewByGender: previewByGender,
+            totalTemplates: totalTemplates,
+            totalUsed: totalUsed,
+            templates: templates
+        )
+    }
+}
