@@ -1,14 +1,8 @@
-//
-//  MyApp.swift
-//  TestBroadApps
-//
-//  Created by Abylaikhan Abilkayr on 04.10.2025.
-//
-
 import SwiftUI
 import AppTrackingTransparency
 import AdSupport
 import ApphudSDK
+import AdServices
 
 @main
 struct MyApp: App {
@@ -37,6 +31,8 @@ struct MyApp: App {
                             await services.initializeUserSession(id: UUID().uuidString)
                         }
                     }
+                    
+                    trackAppleSearchAds()
                 }
                 .onChange(of: scenePhase) {
                     if scenePhase == .active {
@@ -54,6 +50,16 @@ struct MyApp: App {
                     }
                 }
             
+        }
+    }
+    
+    func trackAppleSearchAds() {
+        if #available(iOS 14.3, *) {
+            Task {
+                if let asaToken = try? AAAttribution.attributionToken() {
+                    Apphud.setAttribution(data: nil, from: .appleAdsAttribution, identifer: asaToken, callback: nil)
+                }
+            }
         }
     }
 }
