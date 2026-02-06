@@ -3,6 +3,7 @@ import AppTrackingTransparency
 import AdSupport
 import ApphudSDK
 import AdServices
+import Adapty
 
 @main
 struct MyApp: App {
@@ -13,6 +14,14 @@ struct MyApp: App {
     init() {
         NotificationService.shared.configure()
         ApphudUserManager.shared.configure()
+        
+        let configuration = AdaptyConfiguration
+            .builder(withAPIKey: "public_live_dl6diGfT.BosGupjZKf5u6RZN4Dt7")
+            .with(customerUserId: Apphud.userID())
+            .build()
+
+        Adapty.logLevel = .info
+        Adapty.activate(with: configuration)
     }
     
     var body: some Scene {
