@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2EC7752F362A4400306C5B /* Adapty in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2EC7742F362A4400306C5B /* Adapty */; };
+		3B2EC7772F362A4400306C5B /* AdaptyLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2EC7762F362A4400306C5B /* AdaptyLogger */; };
+		3B2EC7792F362A4400306C5B /* AdaptyUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2EC7782F362A4400306C5B /* AdaptyUI */; };
 		D514D9412E9FCA7400D11A37 /* ApphudSDK in Frameworks */ = {isa = PBXBuildFile; productRef = D514D9402E9FCA7400D11A37 /* ApphudSDK */; };
 		D576C40C2E99132400642534 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D576C40B2E99132400642534 /* Kingfisher */; };
 		D576C40F2E99132E00642534 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D576C40E2E99132E00642534 /* Alamofire */; };
@@ -43,7 +46,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D514D9412E9FCA7400D11A37 /* ApphudSDK in Frameworks */,
+				3B2EC7752F362A4400306C5B /* Adapty in Frameworks */,
 				D576C40C2E99132400642534 /* Kingfisher in Frameworks */,
+				3B2EC7792F362A4400306C5B /* AdaptyUI in Frameworks */,
+				3B2EC7772F362A4400306C5B /* AdaptyLogger in Frameworks */,
 				D576C40F2E99132E00642534 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +96,9 @@
 				D576C40B2E99132400642534 /* Kingfisher */,
 				D576C40E2E99132E00642534 /* Alamofire */,
 				D514D9402E9FCA7400D11A37 /* ApphudSDK */,
+				3B2EC7742F362A4400306C5B /* Adapty */,
+				3B2EC7762F362A4400306C5B /* AdaptyLogger */,
+				3B2EC7782F362A4400306C5B /* AdaptyUI */,
 			);
 			productName = TestBroadApps;
 			productReference = D52F6EBE2E90F4DC006AA2C4 /* TestBroadApps.app */;
@@ -124,7 +133,7 @@
 				D576C40A2E99132400642534 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				D576C40D2E99132E00642534 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D514D93F2E9FCA7400D11A37 /* XCRemoteSwiftPackageReference "ApphudSDK" */,
-				3B2EC5242F36289400306C5B /* XCRemoteSwiftPackageReference "AdaptySDK-iOS" */,
+				3B2EC7732F362A4400306C5B /* XCRemoteSwiftPackageReference "AdaptySDK-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D52F6EBF2E90F4DC006AA2C4 /* Products */;
@@ -371,7 +380,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3B2EC5242F36289400306C5B /* XCRemoteSwiftPackageReference "AdaptySDK-iOS" */ = {
+		3B2EC7732F362A4400306C5B /* XCRemoteSwiftPackageReference "AdaptySDK-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adaptyteam/AdaptySDK-iOS.git";
 			requirement = {
@@ -406,6 +415,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3B2EC7742F362A4400306C5B /* Adapty */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B2EC7732F362A4400306C5B /* XCRemoteSwiftPackageReference "AdaptySDK-iOS" */;
+			productName = Adapty;
+		};
+		3B2EC7762F362A4400306C5B /* AdaptyLogger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B2EC7732F362A4400306C5B /* XCRemoteSwiftPackageReference "AdaptySDK-iOS" */;
+			productName = AdaptyLogger;
+		};
+		3B2EC7782F362A4400306C5B /* AdaptyUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B2EC7732F362A4400306C5B /* XCRemoteSwiftPackageReference "AdaptySDK-iOS" */;
+			productName = AdaptyUI;
+		};
 		D514D9402E9FCA7400D11A37 /* ApphudSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D514D93F2E9FCA7400D11A37 /* XCRemoteSwiftPackageReference "ApphudSDK" */;
